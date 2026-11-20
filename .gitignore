@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.eggs/
+
+# Test / lint caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Work outputs (transcripts, jobs, downloads, rendered videos)
+job-*/
+jobs/
+state/
+inbox/
+download/
+overlays/
+*.mp4
+*.mp3
+*.wav
+*.srt
+!examples/*.json
+
+# Secrets — never commit these
+.env
+*.pem
+*.key
+
+# OS
+.DS_Store
+Thumbs.db

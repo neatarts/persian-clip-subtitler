@@ -1,0 +1,5 @@
+# Runtime dependencies.
+faster-whisper>=1.0.0
+numpy>=1.26
+Pillow>=10.0
+yt-dlp>=2024.1.1

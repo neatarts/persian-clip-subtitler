@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "persian-clip-subtitler"
+version = "0.1.0"
+description = "Burn styled Persian subtitles into videos: Whisper transcription, Persian translation, rounded-box subtitle overlay."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["subtitles", "persian", "farsi", "whisper", "ffmpeg", "caption"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "faster-whisper>=1.0.0",
+    "numpy>=1.26",
+    "Pillow>=10.0",
+    "yt-dlp>=2024.1.1",
+]
+
+[project.scripts]
+pcs = "persian_clip_subtitler.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4.0"]
+
+[tool.setuptools.packages.find]
+include = ["persian_clip_subtitler*"]
+
+[tool.setuptools.package-data]
+persian_clip_subtitler = ["fonts/*.ttf", "fonts/OFL.txt"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+
+[tool.ruff.lint.per-file-ignores]
+# Vendored transcription engine: long lines predate this project.
+"persian_clip_subtitler/transcribe.py" = ["E501"]
